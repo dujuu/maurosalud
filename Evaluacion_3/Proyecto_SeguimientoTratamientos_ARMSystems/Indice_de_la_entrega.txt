@@ -1,0 +1,24 @@
+Proyecto: Sistema de seguimiento y fidelización de tratamientos
+Cliente: Centro Médico Vida Norte SpA
+Equipo: ARM Systems (Mauricio Aliaga, Nicolás González, Fabián Moore, Lukas Rozas)
+Asignatura: Gestión de Proyectos y Equipos de Trabajo. Evaluación N°3
+Profesor: Pedro Fernández Urrutia
+Arica, noviembre de 2026
+
+Documentos Word
+  00_Rotulo_de_la_carpeta.docx          Rótulo para imprimir y pegar en la carpeta física
+  01_Plan_de_Planificacion.docx         Dominio Planificación
+  02_Plan_de_Trabajo.docx               Dominio Trabajo del Proyecto
+  03_Plan_de_Entrega.docx               Dominio Entrega
+  04_Plan_de_Medicion.docx              Dominio Medición
+  05_Plan_de_Incertidumbre_y_Riesgos.docx   Dominio Incertidumbre
+
+Anexos
+  A1_Cronograma_ARM_Systems.gan / .png  Cronograma en GanttProject e imagen del diagrama de Gantt
+  A2_Estimacion_de_Costos.xlsx          Presupuesto, horas del equipo, carga y flujo semanal
+  A3_Matriz_RACI.xlsx                   Matriz RACI
+  A4_Matriz_DoD.xlsx                    Definición de terminado y estado del Incremento 1
+  A5_Matriz_KPI_y_Valor_Ganado.xlsx     Matriz de KPI y análisis de valor ganado
+  A6_Matriz_de_Riesgos.xlsx             Matriz de riesgos y oportunidades
+  A7_Tablero_Jira_para_importar.csv     Tarjetas del tablero Kanban (EDT)
+  A8_Acta_de_Revision_y_Aprobacion_del_Incremento.docx   Formulario de aprobación del incremento

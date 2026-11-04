@@ -1,0 +1,12 @@
+sequenceDiagram
+actor U as Usuario
+participant H as Encabezado
+participant A as AuthService
+participant R as Router y loginGuard
+U->>H: Pulsa «Cerrar sesión»
+H->>A: logout()
+A->>A: Vaciar la sesión en memoria
+A->>A: Borrar la sesión de sessionStorage
+A->>R: navigateByUrl('/login', replaceUrl)
+R-->>U: Muestra el login (la pantalla anterior no queda en el historial)
+Note over A,R: No se llama a la API

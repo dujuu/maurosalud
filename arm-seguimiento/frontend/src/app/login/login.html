@@ -1,0 +1,80 @@
+<main class="pagina">
+  <section class="acceso" aria-labelledby="titulo-login">
+    <app-logo class="logo" />
+
+    <h1 id="titulo-login">Ingrese a su cuenta</h1>
+
+    <form [formGroup]="form" (ngSubmit)="ingresar()" novalidate>
+      <mat-form-field>
+        <mat-label>RUT</mat-label>
+        <input
+          matInput
+          formControlName="rut"
+          autocomplete="username"
+          inputmode="text"
+          placeholder="12.345.678-5"
+          (input)="alEscribirRut($event)"
+        />
+        <mat-hint>Puede escribirlo con o sin puntos y guion</mat-hint>
+        @if (form.controls.rut.errors; as errores) {
+          <mat-error>
+            {{ errores['required'] ? 'Ingrese su RUT.' : 'El RUT no es válido. Revise el dígito verificador.' }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          [type]="verClave() ? 'text' : 'password'"
+          formControlName="password"
+          autocomplete="current-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="verClave.set(!verClave())"
+          [attr.aria-label]="verClave() ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+          [attr.aria-pressed]="verClave()"
+        >
+          <mat-icon>{{ verClave() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error>Ingrese su contraseña.</mat-error>
+      </mat-form-field>
+
+      <div aria-live="assertive">
+        @if (error(); as mensaje) {
+          <p class="aviso aviso-error" role="alert">
+            <mat-icon>error</mat-icon>
+            <span>{{ mensaje }}</span>
+          </p>
+        }
+      </div>
+
+      <button mat-flat-button type="submit" class="entrar" [disabled]="cargando()">
+        {{ cargando() ? 'Ingresando…' : 'Ingresar' }}
+      </button>
+    </form>
+
+    @if (mostrarDemo) {
+      <mat-expansion-panel class="demo" [hideToggle]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Cuentas de demostración</mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="nota">
+          La contraseña de todas es <code>Vida2026</code>. Elija una cuenta para completar el formulario.
+        </p>
+        <mat-action-list>
+          @for (c of cuentasDemo; track c.rut) {
+            <button mat-list-item type="button" (click)="usarCuenta(c.rut)">
+              <span matListItemTitle>{{ c.nombre }}</span>
+              <span matListItemLine>{{ c.detalle }}, RUT {{ c.rut }}</span>
+            </button>
+          }
+        </mat-action-list>
+      </mat-expansion-panel>
+    }
+  </section>
+</main>

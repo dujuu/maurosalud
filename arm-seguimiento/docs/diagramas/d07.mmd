@@ -1,0 +1,17 @@
+sequenceDiagram
+actor D as Doctor
+participant UI as Pestaña Resumen
+participant DD as DoctorDatos
+participant CH as Chart.js
+D->>UI: Abre la pestaña «Resumen»
+UI->>DD: Lee la señal emitidas (sin llamar a la API)
+DD-->>UI: Recomendaciones enviadas por el doctor
+UI->>UI: Calcula totales, agrupa por paciente y por tipo
+UI->>UI: Ordena las sin leer, de la más antigua a la más nueva
+alt No ha enviado recomendaciones
+  UI-->>D: Mensaje explicativo, sin gráficos
+else Hay recomendaciones
+  UI->>CH: Dibuja las barras por paciente y por tipo
+  CH-->>D: Gráficos
+  UI-->>D: Frase con los totales y lista de pendientes
+end

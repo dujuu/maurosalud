@@ -1,0 +1,94 @@
+<div class="resumen">
+  <h2>Resumen de lo que ha enviado</h2>
+
+  @if (datos.cargando() && total() === 0) {
+    <mat-progress-bar mode="indeterminate" aria-label="Cargando resumen" />
+  }
+  @if (datos.error(); as mensaje) {
+    <p class="aviso aviso-error" role="alert">
+      <mat-icon>error</mat-icon>
+      <span>{{ mensaje }}</span>
+    </p>
+  }
+
+  @if (total() === 0 && !datos.cargando()) {
+    <p class="vacio">
+      Todavía no ha enviado recomendaciones. Cuando envíe la primera, aquí verá cuántas se leen y a quién le quedan
+      pendientes.
+    </p>
+  } @else if (total() > 0) {
+    <p class="frase">{{ frase() }}</p>
+
+    <div class="graficos">
+      <section aria-labelledby="t-paciente">
+        <h3 id="t-paciente">Lectura por paciente</h3>
+        <div class="grafico" [style.--filas]="porPaciente().length">
+          <canvas
+            baseChart
+            type="bar"
+            [data]="datosPaciente()"
+            [options]="opcionesApiladas"
+            role="img"
+            aria-label="Gráfico de barras: recomendaciones leídas y sin leer por paciente. Los mismos datos están en la tabla siguiente."
+          ></canvas>
+        </div>
+        <table class="sr-only">
+          <caption>Recomendaciones por paciente</caption>
+          <thead>
+            <tr><th scope="col">Paciente</th><th scope="col">Leídas</th><th scope="col">Sin leer</th></tr>
+          </thead>
+          <tbody>
+            @for (f of porPaciente(); track f.nombre) {
+              <tr><th scope="row">{{ f.nombre }}</th><td>{{ f.leidas }}</td><td>{{ f.sinLeer }}</td></tr>
+            }
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="t-tipo">
+        <h3 id="t-tipo">Por tipo</h3>
+        <div class="grafico" style="--filas: 4">
+          <canvas
+            baseChart
+            type="bar"
+            [data]="datosTipo()"
+            [options]="opcionesSimples"
+            role="img"
+            aria-label="Gráfico de barras: cantidad de recomendaciones enviadas por tipo. Los mismos datos están en la tabla siguiente."
+          ></canvas>
+        </div>
+        <table class="sr-only">
+          <caption>Recomendaciones por tipo</caption>
+          <thead>
+            <tr><th scope="col">Tipo</th><th scope="col">Cantidad</th></tr>
+          </thead>
+          <tbody>
+            @for (t of porTipo(); track t.etiqueta) {
+              <tr><th scope="row">{{ t.etiqueta }}</th><td>{{ t.cantidad }}</td></tr>
+            }
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section aria-labelledby="t-pendientes" class="pendientes">
+      <h3 id="t-pendientes">Pendientes de lectura</h3>
+      @if (pendientes().length === 0) {
+        <p class="vacio">No hay recomendaciones sin leer. Sus pacientes están al día.</p>
+      } @else {
+        <ul class="lista">
+          @for (r of pendientes(); track r.id) {
+            <li class="fila">
+              <span class="avatar" aria-hidden="true">{{ iniciales(r.paciente.nombre) }}</span>
+              <div class="datos">
+                <p class="titulo">{{ r.titulo }}</p>
+                <p class="detalle">{{ r.paciente.nombre }}</p>
+              </div>
+              <p class="cuando">Enviada {{ haceCuanto(r.createdAt) }}</p>
+            </li>
+          }
+        </ul>
+      }
+    </section>
+  }
+</div>

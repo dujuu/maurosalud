@@ -1,0 +1,27 @@
+sequenceDiagram
+participant C as Cliente Angular
+participant G1 as JwtAuthGuard
+participant G2 as RolesGuard
+participant CT as Controlador
+participant DB as MariaDB
+C->>G1: Solicitud a /api con Authorization Bearer
+alt Sin token, token alterado, falso o vencido
+  G1-->>C: 401
+else Token válido
+  G1->>DB: Buscar al usuario por el id del token
+  DB-->>G1: Usuario
+  alt Usuario inexistente o inactivo
+    G1-->>C: 401
+  else Usuario activo
+    G1->>G2: Deja id, rol y nombre de la BD en la solicitud
+    alt El rol no está permitido en la ruta
+      G2-->>C: 403
+    else Rol permitido
+      G2->>CT: Ejecuta la operación
+      CT-->>C: Respuesta
+    end
+  end
+end
+opt La respuesta fue 401
+  C->>C: El interceptor cierra la sesión y va a /login
+end

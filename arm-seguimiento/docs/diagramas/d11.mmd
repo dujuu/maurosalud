@@ -1,0 +1,20 @@
+sequenceDiagram
+actor T as Responsable técnico
+participant CLI as npm y TypeORM
+participant DS as DataSource
+participant DB as MariaDB
+T->>CLI: npm run migration:run
+CLI->>DS: Cargar dist/database/data-source.js
+DS->>DB: Conectar y consultar la tabla migrations
+DB-->>DS: Migraciones ya aplicadas
+loop Por cada migración pendiente
+  DS->>DB: En una transacción: up() y registrar la migración
+end
+CLI-->>T: Migraciones aplicadas
+T->>CLI: npm run seed
+CLI->>DB: Crear usuarios, asignaciones y recomendaciones que no existen
+CLI-->>T: Lista de usuarios de demostración
+opt Deshacer o reiniciar
+  T->>CLI: migration:revert o seed:reset
+  CLI->>DB: down() de la última migración o borrar las recomendaciones
+end

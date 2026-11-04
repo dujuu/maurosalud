@@ -1,0 +1,131 @@
+.pagina {
+  width: min(46rem, 100% - 2rem);
+  margin: 0 auto;
+  padding-block: 2rem 4rem;
+}
+
+.titulo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.estado-general {
+  min-height: 1.5rem;
+  margin-top: 0.35rem;
+  font: var(--mat-sys-title-medium);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.aviso {
+  margin-bottom: 1rem;
+}
+
+.vacio {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  padding: 2rem 0;
+  color: var(--mat-sys-on-surface-variant);
+}
+.vacio mat-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: var(--mat-sys-outline);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entrada {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.5rem 0 1.5rem 1rem;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+  border-left: 4px solid transparent;
+}
+.entrada.nueva {
+  border-left-color: var(--mat-sys-primary);
+}
+
+.icono-tipo {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+}
+
+.tipo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font: var(--mat-sys-label-large);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.etiqueta-nueva {
+  padding: 0.05rem 0.6rem;
+  border-radius: var(--mat-sys-corner-full);
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  font: var(--mat-sys-label-medium);
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0.2rem 0 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+.texto {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.autor {
+  margin-top: 1rem;
+  font: var(--mat-sys-title-small);
+}
+.fecha {
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.pie {
+  margin-top: 1rem;
+}
+
+.leida {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font: var(--mat-sys-body-medium);
+  font-weight: 600;
+  color: var(--mat-sys-primary);
+}
+.leida mat-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+@media (max-width: 599px) {
+  .entrada {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding-left: 0.75rem;
+  }
+  .pie button {
+    width: 100%;
+  }
+}

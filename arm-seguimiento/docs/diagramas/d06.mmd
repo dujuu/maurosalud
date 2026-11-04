@@ -1,0 +1,19 @@
+sequenceDiagram
+participant DD as DoctorDatos
+participant API as API
+participant DB as MariaDB
+participant UI as Panel del doctor
+actor D as Doctor
+loop Cada 20 segundos mientras el panel está abierto
+  DD->>API: GET /doctor/pacientes y GET /recomendaciones/emitidas
+  API->>DB: Consultar pacientes y recomendaciones
+  DB-->>API: Datos actuales con leida_at
+  alt Respuesta correcta
+    API-->>DD: 200
+    DD->>UI: Reemplaza las señales pacientes y emitidas
+    UI-->>D: «Aún sin leer» pasa a «Leída el …»
+  else Falla de red o del servidor
+    API-->>DD: Error
+    DD->>DD: No muestra error y conserva lo anterior
+  end
+end

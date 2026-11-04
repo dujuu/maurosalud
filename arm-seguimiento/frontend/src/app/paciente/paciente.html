@@ -1,0 +1,82 @@
+<app-encabezado />
+
+<main class="pagina">
+  <div class="titulo">
+    <div>
+      <h1>Mis recomendaciones</h1>
+      <p class="estado-general" aria-live="polite">{{ estadoGeneral() }}</p>
+    </div>
+    <button
+      mat-icon-button
+      type="button"
+      (click)="cargar()"
+      [disabled]="cargando()"
+      matTooltip="Actualizar"
+      aria-label="Actualizar la lista"
+    >
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+
+  @if (cargando() && items().length === 0) {
+    <mat-progress-bar mode="indeterminate" aria-label="Cargando sus recomendaciones" />
+  }
+
+  @if (error(); as mensaje) {
+    <p class="aviso aviso-error" role="alert">
+      <mat-icon>error</mat-icon>
+      <span>{{ mensaje }}</span>
+    </p>
+  }
+
+  @if (!cargando() && items().length === 0 && !error()) {
+    <div class="vacio">
+      <mat-icon aria-hidden="true">inbox</mat-icon>
+      <p>Todavía no tiene recomendaciones. Cuando un doctor le envíe una, aparecerá aquí.</p>
+    </div>
+  }
+
+  <ul class="lista">
+    @for (r of ordenadas(); track r.id) {
+      <li class="entrada" [class.nueva]="!r.leidaAt">
+        <span class="icono-tipo" aria-hidden="true"><mat-icon>{{ icono(r.tipo) }}</mat-icon></span>
+
+        <article class="cuerpo">
+          <p class="tipo">
+            {{ etiquetaTipo(r.tipo) }}
+            @if (!r.leidaAt) {
+              <span class="etiqueta-nueva">Nueva</span>
+            }
+          </p>
+          <h2>{{ r.titulo }}</h2>
+          <p class="texto">{{ r.descripcion }}</p>
+
+          <p class="autor">
+            {{ r.doctor.nombre }}@if (r.doctor.especialidad) {, {{ r.doctor.especialidad }}}
+          </p>
+          <p class="fecha">{{ r.createdAt | date: 'd MMM y, HH:mm' }}</p>
+
+          <div class="pie">
+            @if (r.leidaAt) {
+              <p class="leida">
+                <mat-icon>done_all</mat-icon>
+                Leída el {{ r.leidaAt | date: 'd MMM y, HH:mm' }}
+              </p>
+            } @else {
+              <button
+                mat-flat-button
+                type="button"
+                (click)="marcarLeida(r)"
+                [disabled]="marcando() === r.id"
+                [attr.aria-label]="'Marcar como leída: ' + r.titulo"
+              >
+                <mat-icon>check</mat-icon>
+                {{ marcando() === r.id ? 'Guardando…' : 'Marcar como leída' }}
+              </button>
+            }
+          </div>
+        </article>
+      </li>
+    }
+  </ul>
+</main>

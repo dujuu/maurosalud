@@ -1,0 +1,141 @@
+<div class="espacio" [class.con-hilo]="activo()">
+  <section class="pacientes" aria-labelledby="titulo-pacientes">
+    <h2 id="titulo-pacientes">Mis pacientes</h2>
+
+    @if (datos.cargando() && datos.pacientes().length === 0) {
+      <mat-progress-bar mode="indeterminate" aria-label="Cargando pacientes" />
+    }
+    @if (datos.error(); as mensaje) {
+      <p class="aviso aviso-error" role="alert">
+        <mat-icon>error</mat-icon>
+        <span>{{ mensaje }}</span>
+      </p>
+    }
+    @if (!datos.cargando() && datos.pacientes().length === 0 && !datos.error()) {
+      <p class="vacio">Todavía no tiene pacientes asignados.</p>
+    }
+
+    <mat-action-list>
+      @for (p of datos.pacientes(); track p.id) {
+        <button
+          mat-list-item
+          type="button"
+          (click)="seleccionar(p.id)"
+          [activated]="p.id === activoId()"
+          [attr.aria-current]="p.id === activoId() ? 'true' : null"
+        >
+          <span matListItemAvatar class="iniciales" aria-hidden="true">{{ iniciales(p.nombre) }}</span>
+          <span matListItemTitle>{{ p.nombre }}</span>
+          <span matListItemLine>RUT {{ p.rut }}</span>
+          @if (sinLeer().get(p.id); as n) {
+            <span matListItemMeta class="pendientes">{{ n }} sin leer</span>
+          }
+        </button>
+      }
+    </mat-action-list>
+  </section>
+
+  <section class="hilo" aria-label="Recomendaciones del paciente">
+    @if (activo(); as paciente) {
+      <button mat-button type="button" class="volver" (click)="activoId.set(null)">
+        <mat-icon>arrow_back</mat-icon>
+        Mis pacientes
+      </button>
+
+      <header class="cabecera">
+        <h2>{{ paciente.nombre }}</h2>
+        <p>RUT {{ paciente.rut }}</p>
+      </header>
+
+      <form [formGroup]="form" (ngSubmit)="enviar()" novalidate class="redactor">
+        <h3>Nueva recomendación</h3>
+
+        <mat-form-field>
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="tipo">
+            @for (t of tipos; track t.valor) {
+              <mat-option [value]="t.valor">{{ t.etiqueta }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="titulo" maxlength="150" autocomplete="off" />
+          <mat-hint>Ejemplo: Tomar paracetamol cada 8 horas</mat-hint>
+          <mat-error>Ingrese un título de al menos 3 caracteres.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Indicaciones</mat-label>
+          <textarea
+            matInput
+            formControlName="descripcion"
+            maxlength="2000"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="3"
+            cdkAutosizeMaxRows="10"
+          ></textarea>
+          <mat-hint align="end">{{ form.controls.descripcion.value.length }} de 2000</mat-hint>
+          <mat-error>Escriba las indicaciones (mínimo 5 caracteres).</mat-error>
+        </mat-form-field>
+
+        <div aria-live="assertive">
+          @if (errorForm(); as mensaje) {
+            <p class="aviso aviso-error" role="alert">
+              <mat-icon>error</mat-icon>
+              <span>{{ mensaje }}</span>
+            </p>
+          }
+        </div>
+
+        <div class="acciones">
+          <button mat-flat-button type="submit" [disabled]="enviando()">
+            <mat-icon>send</mat-icon>
+            {{ enviando() ? 'Enviando…' : 'Enviar al paciente' }}
+          </button>
+        </div>
+      </form>
+
+      <section aria-labelledby="titulo-enviadas" class="enviadas">
+        <h3 id="titulo-enviadas">Enviadas a {{ paciente.nombre }}</h3>
+
+        @if (hilo().length === 0) {
+          <p class="vacio">Todavía no le ha enviado recomendaciones.</p>
+        } @else {
+          <ul class="lista">
+            @for (r of hilo(); track r.id) {
+              <li class="entrada">
+                <span class="icono-tipo" aria-hidden="true"><mat-icon>{{ icono(r.tipo) }}</mat-icon></span>
+                <div class="cuerpo">
+                  <p class="tipo">{{ etiquetaTipo(r.tipo) }}</p>
+                  <h4>{{ r.titulo }}</h4>
+                  <p class="texto">{{ r.descripcion }}</p>
+                  <p class="meta">
+                    <span>Enviada el {{ r.createdAt | date: 'd MMM y, HH:mm' }}</span>
+                    @if (r.leidaAt) {
+                      <span class="estado leida">
+                        <mat-icon>done_all</mat-icon>
+                        Leída el {{ r.leidaAt | date: 'd MMM, HH:mm' }}
+                      </span>
+                    } @else {
+                      <span class="estado">
+                        <mat-icon>schedule</mat-icon>
+                        Aún sin leer
+                      </span>
+                    }
+                  </p>
+                </div>
+              </li>
+            }
+          </ul>
+        }
+      </section>
+    } @else {
+      <div class="sin-seleccion">
+        <mat-icon aria-hidden="true">groups</mat-icon>
+        <p>Elija un paciente de la lista para ver lo que le ha enviado y escribirle una recomendación nueva.</p>
+      </div>
+    }
+  </section>
+</div>

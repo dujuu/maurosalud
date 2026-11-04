@@ -1,0 +1,23 @@
+sequenceDiagram
+actor P as Paciente
+participant UI as Pantalla del paciente
+participant API as API
+participant S as Servicio de recomendaciones
+participant DB as MariaDB
+P->>UI: Pulsa «Marcar como leída»
+UI->>UI: Bloquea nuevos clics sobre esa recomendación
+UI->>API: PATCH /recomendaciones/{id}/leida
+API->>API: Guardias (PACIENTE) y ParseIntPipe
+API->>S: marcarLeida(pacienteId del token, id)
+S->>DB: Buscar la recomendación por id y paciente
+alt No existe o es de otro paciente
+  S-->>API: NotFoundException
+  API-->>UI: 404 «Recomendación no encontrada»
+  UI-->>P: Muestra el error
+else Existe y es suya
+  S->>DB: UPDATE leida_at si todavía es nulo
+  S-->>API: Recomendación con su leida_at
+  API-->>UI: 200 Recomendación
+  UI->>UI: Reemplaza la tarjeta y baja el contador
+  UI-->>P: «Leída el …» y aviso «Marcada como leída»
+end

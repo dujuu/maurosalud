@@ -1,0 +1,14 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "API del sistema de seguimiento de tratamientos",
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "exclude": ["**/*.spec.ts", "**/migrations/**"],
+  "tsconfig": "tsconfig.build.json",
+  "out": "../docs/codigo/backend",
+  "readme": "none",
+  "excludePrivate": false,
+  "excludeInternal": true,
+  "navigation": { "includeCategories": false, "includeGroups": true },
+  "skipErrorChecking": true
+}

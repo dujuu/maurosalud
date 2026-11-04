@@ -1,0 +1,34 @@
+﻿Summary,Issue Type,Status,Priority,Labels,Description,Epic Name
+Gestión del proyecto,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Gestión del proyecto.,Gestión del proyecto
+Análisis y diseño,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Análisis y diseño.,Análisis y diseño
+Base de datos y servicios,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Base de datos y servicios.,Base de datos y servicios
+Reservas,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Reservas.,Reservas
+Formulario y seguimiento,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Formulario y seguimiento.,Formulario y seguimiento
+Seguridad y accesos,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Seguridad y accesos.,Seguridad y accesos
+Dashboard de continuidad,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Dashboard de continuidad.,Dashboard de continuidad
+Notificaciones,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Notificaciones.,Notificaciones
+Pruebas,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Pruebas.,Pruebas
+Implementación y cierre,Epic,To Do,Medium,ARM-Systems,Módulo o paquete de la EDT: Implementación y cierre.,Implementación y cierre
+"1.1 Documentación de gestión (caso de negocio, planes, acta)",Task,To Do,Medium,EDT-1.1,EDT 1.1. Responsable: Fabián Moore. Del 19/10/2026 al 06/11/2026. Esfuerzo planificado: 30 h. Épica: Gestión del proyecto.,
+1.2 Reuniones y seguimiento con el cliente,Task,To Do,Medium,EDT-1.2,EDT 1.2. Responsable: Fabián Moore. Del 19/10/2026 al 18/12/2026. Esfuerzo planificado: 40 h. Épica: Gestión del proyecto.,
+2.1 Levantamiento y especificación de requisitos,Task,Done,Medium,EDT-2.1,EDT 2.1. Responsable: Nicolás González. Del 19/10/2026 al 23/10/2026. Esfuerzo planificado: 28 h. Épica: Análisis y diseño.,
+2.2 Modelo de datos y arquitectura,Task,Done,Medium,EDT-2.2,EDT 2.2. Responsable: Nicolás González. Del 21/10/2026 al 29/10/2026. Esfuerzo planificado: 30 h. Épica: Análisis y diseño.,
+2.3 Prototipo y diseño de interfaz,Task,Done,Medium,EDT-2.3,EDT 2.3. Responsable: Fabián Moore. Del 20/10/2026 al 03/11/2026. Esfuerzo planificado: 36 h. Épica: Análisis y diseño.,
+"3.1.1 Esquema de base de datos, migraciones y API base",Task,Done,Medium,EDT-3.1.1,EDT 3.1.1. Responsable: Mauricio Aliaga. Del 26/10/2026 al 06/11/2026. Esfuerzo planificado: 22 h. Épica: Base de datos y servicios.,
+3.1.2 Servicios y validaciones del backend,Task,To Do,Medium,EDT-3.1.2,EDT 3.1.2. Responsable: Mauricio Aliaga. Del 09/11/2026 al 13/11/2026. Esfuerzo planificado: 16 h. Épica: Base de datos y servicios.,
+3.2 Módulo de reservas,Task,To Do,Medium,EDT-3.2,EDT 3.2. Responsable: Mauricio Aliaga. Del 09/11/2026 al 20/11/2026. Esfuerzo planificado: 36 h. Épica: Reservas.,
+3.3.1 Formulario estandarizado de contacto,Task,To Do,Medium,EDT-3.3.1,EDT 3.3.1. Responsable: Mauricio Aliaga. Del 09/11/2026 al 20/11/2026. Esfuerzo planificado: 20 h. Épica: Formulario y seguimiento.,
+3.3.2 Recomendaciones del médico al paciente,Task,Done,Medium,EDT-3.3.2,EDT 3.3.2. Responsable: Mauricio Aliaga. Del 29/10/2026 al 06/11/2026. Esfuerzo planificado: 16 h. Épica: Formulario y seguimiento.,
+3.3.3 Recordatorios y estado del hilo de seguimiento,Task,To Do,Medium,EDT-3.3.3,EDT 3.3.3. Responsable: Mauricio Aliaga. Del 17/11/2026 al 27/11/2026. Esfuerzo planificado: 22 h. Épica: Formulario y seguimiento.,
+3.4.1 Perfiles por rol y acceso con RUT,Task,Done,Medium,EDT-3.4.1,EDT 3.4.1. Responsable: Nicolás González. Del 28/10/2026 al 06/11/2026. Esfuerzo planificado: 20 h. Épica: Seguridad y accesos.,
+3.4.2 Historial de accesos,Task,To Do,Medium,EDT-3.4.2,EDT 3.4.2. Responsable: Nicolás González. Del 09/11/2026 al 20/11/2026. Esfuerzo planificado: 16 h. Épica: Seguridad y accesos.,
+3.4.3 Clave Única simulada,Task,To Do,Medium,EDT-3.4.3,EDT 3.4.3. Responsable: Nicolás González. Del 23/11/2026 al 27/11/2026. Esfuerzo planificado: 14 h. Épica: Seguridad y accesos.,
+3.5.1 Resumen del doctor con datos reales,Task,Done,Medium,EDT-3.5.1,EDT 3.5.1. Responsable: Fabián Moore. Del 02/11/2026 al 06/11/2026. Esfuerzo planificado: 10 h. Épica: Dashboard de continuidad.,
+3.5.2 Filtros y reportes de continuidad,Task,To Do,Medium,EDT-3.5.2,EDT 3.5.2. Responsable: Fabián Moore. Del 23/11/2026 al 04/12/2026. Esfuerzo planificado: 22 h. Épica: Dashboard de continuidad.,
+3.6 Notificaciones (WhatsApp y correo),Task,To Do,Medium,EDT-3.6,EDT 3.6. Responsable: Mauricio Aliaga. Del 17/11/2026 al 27/11/2026. Esfuerzo planificado: 20 h. Épica: Notificaciones.,
+4.1 Plan y casos de prueba,Task,To Do,Medium,EDT-4.1,EDT 4.1. Responsable: Lukas Rozas. Del 02/11/2026 al 13/11/2026. Esfuerzo planificado: 14 h. Épica: Pruebas.,
+4.2 Ejecución de pruebas y corrección de defectos,Task,To Do,Medium,EDT-4.2,EDT 4.2. Responsable: Lukas Rozas. Del 16/11/2026 al 16/12/2026. Esfuerzo planificado: 54 h. Épica: Pruebas.,
+4.3 Pruebas de aceptación con el cliente (piloto),Task,To Do,Medium,EDT-4.3,EDT 4.3. Responsable: Lukas Rozas. Del 02/12/2026 al 11/12/2026. Esfuerzo planificado: 40 h. Épica: Pruebas.,
+5.1 Despliegue en el ambiente del cliente (con soporte TI),Task,To Do,Medium,EDT-5.1,EDT 5.1. Responsable: Nicolás González. Del 25/11/2026 al 09/12/2026. Esfuerzo planificado: 32 h. Épica: Implementación y cierre.,
+5.2 Capacitación y manual de usuario,Task,To Do,Medium,EDT-5.2,EDT 5.2. Responsable: Fabián Moore. Del 02/12/2026 al 11/12/2026. Esfuerzo planificado: 42 h. Épica: Implementación y cierre.,
+5.3 Cierre y aceptación final,Task,To Do,Medium,EDT-5.3,EDT 5.3. Responsable: Fabián Moore. Del 14/12/2026 al 18/12/2026. Esfuerzo planificado: 60 h. Épica: Implementación y cierre.,

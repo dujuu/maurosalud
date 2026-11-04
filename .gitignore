@@ -1,0 +1,18 @@
+# Dependencias y compilados
+node_modules/
+dist/
+.angular/
+coverage/
+
+# Credenciales: nunca se suben. Cada persona crea su propio .env a partir de .env.example
+.env
+*.env.local
+
+# Varios
+*.log
+.DS_Store
+__pycache__/
+
+# Archivos auxiliares que no forman parte del proyecto
+AGENTS.md
+fuentes_generador/

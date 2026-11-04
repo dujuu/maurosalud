@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Sistema de seguimiento y fidelización de tratamientos" company="ARM Systems" webLink="" view-date="2026-10-19" view-index="0" gantt-divider-location="560" resource-divider-location="322" version="3.3.3309" locale="es">
+    <description>Cronograma del proyecto. Cliente: Centro Médico Vida Norte SpA. Línea base del 3 de noviembre de 2026. Tarifa de referencia: $15.000 por hora (neto).</description>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Name" width="330" order="0"/>
+        <field id="tpd4" name="Begin date" width="80" order="1"/>
+        <field id="tpd5" name="End date" width="80" order="2"/>
+        <field id="tpd6" name="Duration" width="55" order="3"/>
+        <field id="tpd13" name="Resources" width="150" order="4"/>
+        <field id="tpd7" name="% complete" width="60" order="5"/>
+        <option id="taskLabelRight" value="none"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <timeline><![CDATA[0]]></timeline>
+        <option id="color.recent"><![CDATA[#ff0066]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="160" order="0"/>
+        <field id="1" name="Default role" width="158" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="2026" month="12" date="8" type="HOLIDAY"/>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+            <taskproperty id="tpc0" name="Is done" type="custom" valuetype="boolean" defaultvalue="false">
+                <simple-select select="completion=100"/>
+            </taskproperty>
+        </taskproperties>
+        <task id="0" uid="e29d8609e54923202cf57ad7be0c83ab" name="Hito 0. Inicio del proyecto" color="#000000" meeting="true" start="2026-10-19" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="1" uid="9bfc21cdc6fddc09a01fc85eeac7b0de" name="1 Gestión del proyecto" color="#0A4E99" meeting="false" start="2026-10-19" duration="44" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+            <task id="2" uid="ae5100bbd2dbed75efaaf9b2c39c9455" name="1.1 Documentación de gestión (caso de negocio, planes, acta)" color="#0B8794" meeting="false" start="2026-10-19" duration="15" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="3" uid="646a9b78e48e83ca2d9c1c11a57ca5c1" name="1.2 Reuniones y seguimiento con el cliente" color="#0B8794" meeting="false" start="2026-10-19" duration="44" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+        </task>
+        <task id="4" uid="4ffae37f2a5ddcc6ea710bc8003b8e8d" name="2 Análisis y diseño" color="#0A4E99" meeting="false" start="2026-10-19" duration="12" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="true"/>
+            <task id="5" uid="9de61ecff1945b880c97abe57b37eb44" name="2.1 Levantamiento y especificación de requisitos" color="#0B8794" meeting="false" start="2026-10-19" duration="5" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="6" type="1" difference="2" hardness="Strong"/>
+                <depend id="7" type="1" difference="1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="true"/>
+            </task>
+            <task id="6" uid="88a652137f5d6155d3b178973ff1532c" name="2.2 Modelo de datos y arquitectura" color="#0B8794" meeting="false" start="2026-10-21" duration="7" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="10" type="1" difference="3" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="true"/>
+            </task>
+            <task id="7" uid="91c5004d903c49baa92af5ff16483aec" name="2.3 Prototipo y diseño de interfaz" color="#0B8794" meeting="false" start="2026-10-20" duration="11" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="12" type="2" difference="3" hardness="Strong"/>
+                <depend id="22" type="1" difference="9" hardness="Strong"/>
+                <depend id="26" type="1" difference="9" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="true"/>
+            </task>
+        </task>
+        <task id="8" uid="ca91673955fcfcb0ee1141d145703765" name="3 Desarrollo" color="#0A4E99" meeting="false" start="2026-10-26" duration="30" complete="29" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+            <task id="9" uid="66cb08fc7bc6d727acac15d127bbf4a6" name="3.1 Base de datos y servicios (backend)" color="#0A4E99" meeting="false" start="2026-10-26" duration="15" complete="58" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+                <task id="10" uid="d910d67cd322d94b9afbd0905dd90e29" name="3.1.1 Esquema de base de datos, migraciones y API base" color="#0B8794" meeting="false" start="2026-10-26" duration="10" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="11" type="2" difference="0" hardness="Strong"/>
+                    <depend id="12" type="2" difference="0" hardness="Strong"/>
+                    <depend id="14" type="2" difference="0" hardness="Strong"/>
+                    <depend id="15" type="1" difference="3" hardness="Strong"/>
+                    <depend id="18" type="1" difference="2" hardness="Strong"/>
+                    <depend id="33" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="true"/>
+                </task>
+                <task id="11" uid="e401aed72a141d31f811b90f9a2616bc" name="3.1.2 Servicios y validaciones del backend" color="#0B8794" meeting="false" start="2026-11-09" duration="5" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="16" type="2" difference="1" hardness="Strong"/>
+                    <depend id="24" type="2" difference="1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+            </task>
+            <task id="12" uid="9614c57e840f70c1723174d001455b0f" name="3.2 Módulo de reservas" color="#0B8794" meeting="false" start="2026-11-09" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="28" type="2" difference="7" hardness="Strong"/>
+                <depend id="30" type="2" difference="2" hardness="Strong"/>
+                <depend id="34" type="3" difference="-1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="13" uid="adadf63ea838b7427f5fdd124df9f69b" name="3.3 Formulario estandarizado y seguimiento post atención" color="#0A4E99" meeting="false" start="2026-10-29" duration="22" complete="28" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+                <task id="14" uid="45beeb6d4d4f215de2946137a084441d" name="3.3.1 Formulario estandarizado de contacto" color="#0B8794" meeting="false" start="2026-11-09" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="28" type="2" difference="7" hardness="Strong"/>
+                    <depend id="34" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+                <task id="15" uid="c78cee2f4b16755751e466079ff5220b" name="3.3.2 Recomendaciones del médico al paciente" color="#0B8794" meeting="false" start="2026-10-29" duration="7" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="16" type="2" difference="6" hardness="Strong"/>
+                    <depend id="22" type="1" difference="2" hardness="Strong"/>
+                    <depend id="33" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="true"/>
+                </task>
+                <task id="16" uid="9ec7ffa9767b777530cdba0ae6ba0215" name="3.3.3 Recordatorios y estado del hilo de seguimiento" color="#0B8794" meeting="false" start="2026-11-17" duration="9" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="23" type="1" difference="4" hardness="Strong"/>
+                    <depend id="28" type="2" difference="2" hardness="Strong"/>
+                    <depend id="35" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+            </task>
+            <task id="17" uid="52ec805bcf6020056c22e528774b6338" name="3.4 Seguridad, perfiles, historial de accesos y Clave Única simulada" color="#0A4E99" meeting="false" start="2026-10-28" duration="23" complete="40" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+                <task id="18" uid="d635e2dee3bf6256a8ae8793995f8cc6" name="3.4.1 Perfiles por rol y acceso con RUT" color="#0B8794" meeting="false" start="2026-10-28" duration="8" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="19" type="2" difference="0" hardness="Strong"/>
+                    <depend id="33" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="true"/>
+                </task>
+                <task id="19" uid="b32741827b8b667f2899b01cbaa88121" name="3.4.2 Historial de accesos" color="#0B8794" meeting="false" start="2026-11-09" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="20" type="2" difference="0" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+                <task id="20" uid="c3af8b5cdc630f34b89707fb3597a353" name="3.4.3 Clave Única simulada" color="#0B8794" meeting="false" start="2026-11-23" duration="5" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="28" type="2" difference="2" hardness="Strong"/>
+                    <depend id="35" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+            </task>
+            <task id="21" uid="22063dd4ddbbaef1dff31298d04ac215" name="3.5 Dashboard de continuidad" color="#0A4E99" meeting="false" start="2026-11-02" duration="25" complete="31" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+                <task id="22" uid="8b91fb75094625e49879103abd86dc36" name="3.5.1 Resumen del doctor con datos reales" color="#0B8794" meeting="false" start="2026-11-02" duration="5" complete="100" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="23" type="2" difference="10" hardness="Strong"/>
+                    <depend id="33" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="true"/>
+                </task>
+                <task id="23" uid="bd9fb19f7615bc37d4ae388fdc76f131" name="3.5.2 Filtros y reportes de continuidad" color="#0B8794" meeting="false" start="2026-11-23" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                    <depend id="36" type="3" difference="-1" hardness="Strong"/>
+                    <customproperty taskproperty-id="tpc0" value="false"/>
+                </task>
+            </task>
+            <task id="24" uid="872ee5ddbc178950978d413ca4ca4a13" name="3.6 Notificaciones (WhatsApp y correo)" color="#0B8794" meeting="false" start="2026-11-17" duration="9" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="28" type="2" difference="2" hardness="Strong"/>
+                <depend id="35" type="3" difference="-1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+        </task>
+        <task id="25" uid="b144c7c64751f1f84c6ae4a679b81542" name="4 Pruebas" color="#0A4E99" meeting="false" start="2026-11-02" duration="32" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+            <task id="26" uid="af49c2c1f824533e45d3bd4ed2297616" name="4.1 Plan y casos de prueba" color="#0B8794" meeting="false" start="2026-11-02" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="27" type="1" difference="10" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="27" uid="1859f9c7d210ae1a58a911c2f447e7b7" name="4.2 Ejecución de pruebas y corrección de defectos" color="#0B8794" meeting="false" start="2026-11-16" duration="22" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="32" type="3" difference="2" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="28" uid="447eb7856a0bc6ab3df175833ed0990e" name="4.3 Pruebas de aceptación con el cliente (piloto)" color="#0B8794" meeting="false" start="2026-12-02" duration="7" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="31" type="1" difference="0" hardness="Strong"/>
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
+                <depend id="37" type="3" difference="-1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+        </task>
+        <task id="29" uid="d814eedc883562f7c87432693baaf66c" name="5 Implementación y cierre" color="#0A4E99" meeting="false" start="2026-11-25" duration="17" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+            <task id="30" uid="50c89501cb6d726a9a5316fcd4b4c251" name="5.1 Despliegue en el ambiente del cliente (con soporte TI)" color="#0B8794" meeting="false" start="2026-11-25" duration="10" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="31" uid="031fc1eecf5a8a4fa4f290f0e3854c45" name="5.2 Capacitación y manual de usuario" color="#0B8794" meeting="false" start="2026-12-02" duration="7" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
+                <depend id="37" type="3" difference="-1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+            <task id="32" uid="8306191060a7bcc6b8fe91bd7889eec9" name="5.3 Cierre y aceptación final" color="#0B8794" meeting="false" start="2026-12-14" duration="5" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+                <depend id="38" type="3" difference="-1" hardness="Strong"/>
+                <customproperty taskproperty-id="tpc0" value="false"/>
+            </task>
+        </task>
+        <task id="33" uid="844dfa1d2611fed7faa5c16336bfd7ed" name="Hito 1. Incremento 1 (Evaluación N°3): acceso por rol y recomendaciones" color="#000000" meeting="true" start="2026-11-06" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="34" uid="b17a1451ae2f2df17793f2974a3a3939" name="Hito 2. Reservas y formulario aprobados (OE1, OE2)" color="#000000" meeting="true" start="2026-11-20" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="35" uid="679350a389de313b1bc62e1fe09edc02" name="Hito 3. Seguimiento y seguridad aprobados (OE3, OE4)" color="#000000" meeting="true" start="2026-11-27" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="36" uid="14286db2ab8b64baea4e2049ceae91d1" name="Hito 4. Dashboard aprobado (OE5)" color="#000000" meeting="true" start="2026-12-04" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="37" uid="3b10449320a174de9e0ba3a6469db2c4" name="Hito 5. Pruebas, piloto y capacitación concluidos (OE6, OE7)" color="#000000" meeting="true" start="2026-12-11" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+        <task id="38" uid="37a0fe59842006da8f1e2461fe7109a8" name="Hito 6. Cierre y aceptación final del proyecto" color="#000000" meeting="true" start="2026-12-18" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="true">
+            <customproperty taskproperty-id="tpc0" value="false"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Fabián Moore" function="0" contacts="" phone=""><rate name="standard" value="120000"/></resource>
+        <resource id="1" name="Mauricio Aliaga" function="1" contacts="" phone=""><rate name="standard" value="120000"/></resource>
+        <resource id="2" name="Nicolás González" function="2" contacts="" phone=""><rate name="standard" value="120000"/></resource>
+        <resource id="3" name="Lukas Rozas" function="3" contacts="" phone=""><rate name="standard" value="120000"/></resource>
+    </resources>
+    <allocations>
+        <allocation task-id="2" resource-id="0" function="0" responsible="true" load="15.0000"/>
+        <allocation task-id="2" resource-id="2" function="2" responsible="false" load="5.0000"/>
+        <allocation task-id="2" resource-id="3" function="3" responsible="false" load="5.0000"/>
+        <allocation task-id="3" resource-id="0" function="0" responsible="true" load="3.9773"/>
+        <allocation task-id="3" resource-id="1" function="1" responsible="false" load="1.7045"/>
+        <allocation task-id="3" resource-id="2" function="2" responsible="false" load="2.8409"/>
+        <allocation task-id="3" resource-id="3" function="3" responsible="false" load="2.8409"/>
+        <allocation task-id="5" resource-id="2" function="2" responsible="true" load="20.0000"/>
+        <allocation task-id="5" resource-id="0" function="0" responsible="false" load="10.0000"/>
+        <allocation task-id="5" resource-id="3" function="3" responsible="false" load="35.0000"/>
+        <allocation task-id="5" resource-id="1" function="1" responsible="false" load="5.0000"/>
+        <allocation task-id="6" resource-id="2" function="2" responsible="true" load="39.2857"/>
+        <allocation task-id="6" resource-id="1" function="1" responsible="false" load="14.2857"/>
+        <allocation task-id="7" resource-id="0" function="0" responsible="true" load="30.6818"/>
+        <allocation task-id="7" resource-id="3" function="3" responsible="false" load="10.2273"/>
+        <allocation task-id="10" resource-id="1" function="1" responsible="true" load="27.5000"/>
+        <allocation task-id="11" resource-id="1" function="1" responsible="true" load="22.5000"/>
+        <allocation task-id="11" resource-id="2" function="2" responsible="false" load="17.5000"/>
+        <allocation task-id="12" resource-id="1" function="1" responsible="true" load="17.5000"/>
+        <allocation task-id="12" resource-id="0" function="0" responsible="false" load="13.7500"/>
+        <allocation task-id="12" resource-id="3" function="3" responsible="false" load="13.7500"/>
+        <allocation task-id="14" resource-id="1" function="1" responsible="true" load="10.0000"/>
+        <allocation task-id="14" resource-id="0" function="0" responsible="false" load="12.5000"/>
+        <allocation task-id="14" resource-id="3" function="3" responsible="false" load="2.5000"/>
+        <allocation task-id="15" resource-id="1" function="1" responsible="true" load="12.5000"/>
+        <allocation task-id="15" resource-id="0" function="0" responsible="false" load="7.1429"/>
+        <allocation task-id="15" resource-id="3" function="3" responsible="false" load="8.9286"/>
+        <allocation task-id="16" resource-id="1" function="1" responsible="true" load="12.5000"/>
+        <allocation task-id="16" resource-id="0" function="0" responsible="false" load="12.5000"/>
+        <allocation task-id="16" resource-id="3" function="3" responsible="false" load="5.5556"/>
+        <allocation task-id="18" resource-id="2" function="2" responsible="true" load="21.8750"/>
+        <allocation task-id="18" resource-id="3" function="3" responsible="false" load="9.3750"/>
+        <allocation task-id="19" resource-id="2" function="2" responsible="true" load="20.0000"/>
+        <allocation task-id="20" resource-id="2" function="2" responsible="true" load="20.0000"/>
+        <allocation task-id="20" resource-id="0" function="0" responsible="false" load="10.0000"/>
+        <allocation task-id="20" resource-id="3" function="3" responsible="false" load="5.0000"/>
+        <allocation task-id="22" resource-id="0" function="0" responsible="true" load="12.5000"/>
+        <allocation task-id="22" resource-id="1" function="1" responsible="false" load="5.0000"/>
+        <allocation task-id="22" resource-id="3" function="3" responsible="false" load="7.5000"/>
+        <allocation task-id="23" resource-id="0" function="0" responsible="true" load="12.5000"/>
+        <allocation task-id="23" resource-id="1" function="1" responsible="false" load="7.5000"/>
+        <allocation task-id="23" resource-id="3" function="3" responsible="false" load="7.5000"/>
+        <allocation task-id="24" resource-id="1" function="1" responsible="true" load="11.1111"/>
+        <allocation task-id="24" resource-id="2" function="2" responsible="false" load="8.3333"/>
+        <allocation task-id="24" resource-id="3" function="3" responsible="false" load="8.3333"/>
+        <allocation task-id="26" resource-id="3" function="3" responsible="true" load="10.0000"/>
+        <allocation task-id="26" resource-id="2" function="2" responsible="false" load="7.5000"/>
+        <allocation task-id="27" resource-id="3" function="3" responsible="true" load="22.1591"/>
+        <allocation task-id="27" resource-id="1" function="1" responsible="false" load="3.9773"/>
+        <allocation task-id="27" resource-id="2" function="2" responsible="false" load="4.5455"/>
+        <allocation task-id="28" resource-id="3" function="3" responsible="true" load="25.0000"/>
+        <allocation task-id="28" resource-id="0" function="0" responsible="false" load="17.8571"/>
+        <allocation task-id="28" resource-id="1" function="1" responsible="false" load="23.2143"/>
+        <allocation task-id="28" resource-id="2" function="2" responsible="false" load="5.3571"/>
+        <allocation task-id="30" resource-id="2" function="2" responsible="true" load="25.0000"/>
+        <allocation task-id="30" resource-id="1" function="1" responsible="false" load="12.5000"/>
+        <allocation task-id="30" resource-id="3" function="3" responsible="false" load="2.5000"/>
+        <allocation task-id="31" resource-id="0" function="0" responsible="true" load="30.3571"/>
+        <allocation task-id="31" resource-id="1" function="1" responsible="false" load="17.8571"/>
+        <allocation task-id="31" resource-id="2" function="2" responsible="false" load="23.2143"/>
+        <allocation task-id="31" resource-id="3" function="3" responsible="false" load="3.5714"/>
+        <allocation task-id="32" resource-id="0" function="0" responsible="true" load="45.0000"/>
+        <allocation task-id="32" resource-id="2" function="2" responsible="false" load="30.0000"/>
+        <allocation task-id="32" resource-id="1" function="1" responsible="false" load="47.5000"/>
+        <allocation task-id="32" resource-id="3" function="3" responsible="false" load="27.5000"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="0" name="Líder de proyecto y diseñador frontend"/>
+        <role id="1" name="Programador backend"/>
+        <role id="2" name="Ingeniero en sistemas"/>
+        <role id="3" name="Tester y validador del sistema"/>
+    </roles>
+</project>

@@ -1,0 +1,26 @@
+sequenceDiagram
+actor U as Usuario
+participant R as Router y rolGuard
+participant A as AuthService
+participant API as API /auth/me
+participant DB as MariaDB
+U->>R: Abre o recarga /doctor o /paciente
+R->>A: verificar()
+alt No hay sesión guardada
+  A-->>R: null
+  R-->>U: Redirige a /login
+else Hay sesión guardada
+  A->>API: GET /api/auth/me con el token
+  API->>DB: Buscar al usuario por id
+  DB-->>API: id, rol y nombre
+  alt Token inválido o usuario inactivo
+    API-->>A: 401
+    A-->>R: null (se cierra la sesión)
+    R-->>U: Redirige a /login
+  else Sesión válida
+    API-->>A: 200 {id, rol, nombre}
+    A->>A: Corrige el rol y el nombre guardados
+    A-->>R: usuario
+    R-->>U: Muestra la pantalla o redirige a la de su rol
+  end
+end

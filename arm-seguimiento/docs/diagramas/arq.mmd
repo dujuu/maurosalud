@@ -1,0 +1,19 @@
+flowchart LR
+  subgraph N["Navegador del usuario"]
+    direction TB
+    A1["Angular 22 y Angular Material<br/>Pantallas: login, doctor y paciente"]
+    A2["AuthService, guardias del router<br/>e interceptor HTTP<br/>Sesión en sessionStorage"]
+    A1 --- A2
+  end
+  subgraph S["Servidor de aplicación"]
+    direction TB
+    B1["NestJS 12: API REST bajo /api"]
+    B2["Guardias globales<br/>JwtAuthGuard y RolesGuard"]
+    B3["Módulos: Auth, Asignaciones<br/>y Recomendaciones"]
+    B1 --> B2 --> B3
+  end
+  subgraph D["Base de datos"]
+    C1[("MariaDB 12<br/>vida_norte")]
+  end
+  N -- "HTTP y JSON<br/>token Bearer" --> S
+  S -- "TypeORM 1.1<br/>consultas y migraciones" --> D

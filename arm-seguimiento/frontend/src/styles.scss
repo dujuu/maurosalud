@@ -1,0 +1,117 @@
+@use '@angular/material' as mat;
+@use 'theme-colors' as brand;
+
+// Tema Material 3 generado con `ng generate @angular/material:m3-theme` a partir de los colores del logo.
+html {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: brand.$primary-palette,
+        tertiary: brand.$tertiary-palette,
+        theme-type: light,
+      ),
+      typography: (
+        plain-family: ('Atkinson Hyperlegible Next Variable', system-ui, sans-serif),
+        brand-family: ('Atkinson Hyperlegible Next Variable', system-ui, sans-serif),
+        bold-weight: 700,
+        medium-weight: 600,
+        regular-weight: 400,
+      ),
+      density: 0,
+    )
+  );
+  // Azul del logo (#0A4E99), para títulos.
+  --vn-tinta: #0a4e99;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-large);
+  font-size: 1.0625rem; // 17px: más cómodo de leer para pacientes mayores
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font: var(--mat-sys-headline-medium);
+  color: var(--vn-tinta);
+}
+h2 {
+  font: var(--mat-sys-title-large);
+  color: var(--vn-tinta);
+}
+h3 {
+  font: var(--mat-sys-title-medium);
+  color: var(--vn-tinta);
+}
+
+// Íconos: Material Symbols (variable, autoalojada con fontsource).
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined Variable';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+}
+
+.contenedor {
+  width: min(1180px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Aviso de error en línea (formularios y listas).
+.aviso {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: var(--mat-sys-corner-medium);
+  font: var(--mat-sys-body-medium);
+}
+.aviso mat-icon {
+  flex: none;
+}
+.aviso-error {
+  background: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

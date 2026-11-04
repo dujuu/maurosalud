@@ -1,0 +1,24 @@
+sequenceDiagram
+actor D as Doctor
+participant UI as Formulario
+participant API as API
+participant S as Servicio de recomendaciones
+participant DB as MariaDB
+D->>UI: Completa el tipo, el título y las indicaciones y pulsa «Enviar»
+UI->>UI: Valida y bloquea nuevos envíos
+UI->>API: POST /recomendaciones {pacienteId, tipo, titulo, descripcion}
+API->>API: Guardias y ValidationPipe (recorta y valida los textos)
+API->>S: crear(doctorId del token, dto)
+S->>DB: ¿Existe la asignación doctor_paciente?
+alt Paciente no asignado
+  S-->>API: ForbiddenException
+  API-->>UI: 403 «Ese paciente no está asignado a usted»
+  UI-->>D: Muestra el error y conserva el borrador
+else Paciente asignado
+  S->>DB: INSERT en recomendaciones (leida_at nulo)
+  DB-->>S: Recomendación con el nombre del paciente
+  S-->>API: Recomendación
+  API-->>UI: 201 Recomendación
+  UI->>UI: Agrega la recomendación al hilo y limpia el formulario
+  UI-->>D: Aviso «Recomendación enviada a Ana Muñoz»
+end

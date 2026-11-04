@@ -1,0 +1,70 @@
+.pagina {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background: var(--mat-sys-surface-container-low);
+}
+
+.acceso {
+  width: min(440px, 100%);
+  padding: 2.25rem 2rem 2rem;
+  background: var(--mat-sys-surface-container-lowest);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: var(--mat-sys-corner-extra-large);
+}
+
+.logo {
+  width: min(290px, 100%);
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font: var(--mat-sys-headline-small);
+  font-weight: 600;
+}
+
+form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.entrar {
+  height: 52px;
+  font-size: 1.0625rem;
+}
+
+.aviso mat-icon {
+  margin-top: 1px;
+}
+
+.demo {
+  margin-top: 1.75rem;
+  --mat-expansion-container-background-color: var(--mat-sys-surface-container-low);
+  --mat-expansion-container-shape: var(--mat-sys-corner-medium);
+  border: 1px solid var(--mat-sys-outline-variant);
+}
+/* Material aplica su sombra con :not([class*='mat-elevation-z']); se iguala la especificidad para quitarla. */
+.demo.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+.nota {
+  margin-bottom: 0.5rem;
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+code {
+  padding: 0.05rem 0.35rem;
+  border-radius: var(--mat-sys-corner-extra-small);
+  background: var(--mat-sys-surface-container-high);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.9em;
+}

@@ -1,0 +1,23 @@
+sequenceDiagram
+actor U as Usuario
+participant L as Pantalla de login
+participant A as AuthService
+participant API as API /auth/login
+participant DB as MariaDB
+U->>L: Escribe RUT y contraseña y pulsa «Ingresar»
+L->>L: Valida los campos y el dígito verificador
+L->>A: login(rut, password)
+A->>API: POST /api/auth/login
+API->>API: Valida el cuerpo y normaliza el RUT
+API->>DB: Buscar usuario activo por RUT
+DB-->>API: Usuario con password_hash
+API->>API: bcrypt.compare()
+alt Credenciales incorrectas
+  API-->>A: 401 «RUT o contraseña incorrectos»
+  L-->>U: Muestra el mensaje y habilita el botón
+else Credenciales correctas
+  API->>API: Firma el JWT con vigencia de 8 horas
+  API-->>A: 200 {accessToken, usuario}
+  A->>A: Guarda la sesión en sessionStorage
+  L-->>U: Redirige a /doctor o /paciente
+end

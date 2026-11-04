@@ -1,0 +1,18 @@
+sequenceDiagram
+actor D as Doctor
+participant UI as Panel del doctor
+participant DD as DoctorDatos
+participant API as API
+participant DB as MariaDB
+D->>UI: Abre /doctor
+UI->>DD: cargar()
+DD->>API: GET /doctor/pacientes y GET /recomendaciones/emitidas
+API->>API: JwtAuthGuard y RolesGuard (DOCTOR)
+API->>DB: Pacientes asignados y recomendaciones del doctor
+DB-->>API: Filas
+API-->>DD: 200 [pacientes] y [recomendaciones]
+DD-->>UI: Actualiza las señales pacientes y emitidas
+UI-->>D: Lista de pacientes con sus pendientes de lectura
+D->>UI: Elige un paciente
+UI->>UI: Filtra en memoria y limpia el borrador
+UI-->>D: Nombre, RUT, formulario e hilo del paciente

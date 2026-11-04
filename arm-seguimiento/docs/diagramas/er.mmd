@@ -1,0 +1,30 @@
+erDiagram
+  usuarios ||--o{ doctor_paciente : "doctor_id"
+  usuarios ||--o{ doctor_paciente : "paciente_id"
+  usuarios ||--o{ recomendaciones : "doctor_id"
+  usuarios ||--o{ recomendaciones : "paciente_id"
+  usuarios {
+    int id PK
+    varchar rut UK
+    varchar nombre
+    varchar password_hash
+    enum rol "DOCTOR o PACIENTE"
+    varchar especialidad
+    boolean activo
+    datetime created_at
+  }
+  doctor_paciente {
+    int doctor_id PK
+    int paciente_id PK
+    datetime created_at
+  }
+  recomendaciones {
+    int id PK
+    int doctor_id FK
+    int paciente_id FK
+    enum tipo
+    varchar titulo
+    text descripcion
+    datetime created_at
+    datetime leida_at
+  }

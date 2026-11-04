@@ -1,0 +1,7 @@
+stateDiagram-v2
+direction LR
+state "Sin leer" as SinLeer
+state "Leída" as Leida
+[*] --> SinLeer: El doctor la envía (leida_at es nulo)
+SinLeer --> Leida: El paciente la marca (leida_at recibe la fecha y hora)
+Leida --> Leida: Marcarla otra vez no cambia la fecha

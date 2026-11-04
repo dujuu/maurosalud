@@ -1,0 +1,18 @@
+sequenceDiagram
+actor P as Paciente
+participant UI as Pantalla del paciente
+participant API as API
+participant DB as MariaDB
+P->>UI: Abre /paciente
+UI->>API: GET /recomendaciones/mias
+API->>API: JwtAuthGuard y RolesGuard (PACIENTE)
+API->>DB: Recomendaciones del paciente del token, con los datos del doctor
+DB-->>API: Filas
+API-->>UI: 200 [recomendaciones]
+UI->>UI: Ordena: sin leer primero y luego de la más nueva a la más antigua
+UI-->>P: Frase con los pendientes y la lista
+loop Cada 20 segundos
+  UI->>API: GET /recomendaciones/mias
+  API-->>UI: 200 con las recomendaciones nuevas
+  UI-->>P: Las nuevas aparecen sin recargar la página
+end
